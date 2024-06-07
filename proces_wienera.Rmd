@@ -1,0 +1,23 @@
+---
+title: "Proces Wienera"
+output: html_notebook
+---
+
+Proces Wienera
+-zdef.
+-wygenerować ścieżki w R
+-podać przykłady zastosowań
+
+
+Proces Wienera to proces stochastyczny z czasem ciągłym.
+Jest to model matematyczny opisujący zjawisko ruchów Browna (chaotycznych ruchów cząstek w cieczy lub gazie).
+Proces Wienera spełnia warunki:
+1. W momencie 0 ma wartość 0.
+2. Ma przyrosty niezależne.
+3. Różnica procesów Wieniera dla dwóch dowolnych chwil jest procesem gaussowskim (normalnym) o średniej równej zeru i wariancji równej odległości czasowej rozważanych procesów.
+4. Ma ciągłe trajektorie.
+
+```{r}
+
+```
+
