@@ -8,7 +8,7 @@ Proces Wienera
 -wygenerować ścieżki w R
 -podać przykłady zastosowań
 
-
+*Definicja:
 Proces Wienera to proces stochastyczny z czasem ciągłym.
 Jest to model matematyczny opisujący zjawisko ruchów Browna (chaotycznych ruchów cząstek w cieczy lub gazie).
 Proces Wienera spełnia warunki:
@@ -16,6 +16,43 @@ Proces Wienera spełnia warunki:
 2. Ma przyrosty niezależne.
 3. Różnica procesów Wieniera dla dwóch dowolnych chwil jest procesem gaussowskim (normalnym) o średniej równej zeru i wariancji równej odległości czasowej rozważanych procesów.
 4. Ma ciągłe trajektorie.
+
+*Ścieżki w R:
+1. Ścieżka symulująca proces Wienera:
+
+```{r}
+# n - liczba kroków, T - maksymalny czas
+n <- 1000
+T <- 1
+
+# Wektory czasu
+time <- seq(0, T, length.out = n)
+
+# Przyrosty procesu Wienera
+dt <- T / n
+increments <- rnorm(n - 1, mean = 0, sd = sqrt(dt))
+
+# Inicjalizacja procesu Wienera
+W <- numeric(n)
+W[1] <- 0
+
+# Generowanie procesu Wienera
+for (i in 2:n) {
+  W[i] <- W[i-1] + increments[i-1]
+}
+
+# Wizualizacja procesu Wienera
+plot(time, W, type = "l", main = "Symulacja Procesu Wienera", xlab = "Czas", ylab = "W(t)")
+```
+
+
+
+*Zastosowania procesu Wienera:
+1.Fizyka - ruch cząsteczek zawieszonych w gazie lub w cieczy
+Proces Wienera jest matematycznym modelem opisującym ruch Browna, czyli chaotyczny ruch małych cząstek zawieszonych w cieczy lub gazie, wynikający z ich zderzeń z cząsteczkami medium.
+2.Finanse - modelowanie cen akcji
+Na podstawie procesu Wienera opracowany jest model Blacka-Scholesa, używany do wyceny opcji. W modelu tym cena akcji jest modelowana jako proces geometrycznego ruchu Browna, 
+który jest modyfikacją procesu Wienera.
 
 ```{r}
 
